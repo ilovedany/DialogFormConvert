@@ -7,10 +7,10 @@ public partial class Form1 : Form
     {
         InitializeComponent();
     }
-    private int selectView=1; //выбор вида запуска утилиты (1-xml из файла, 2-xml из бд)
-    private string pathToExe="C:/dllFiles/ConvertUtilityForm.exe"; //путь до exe
+    private int selectView=2; //выбор вида запуска утилиты (1-xml из файла, 2-xml из бд)
+    private string pathToExe="ConvertUtilityForm.exe"; //путь до exe
     private string pathToSaveXlsx="C:/XmlFiles/Смена профессии.xlsx"; //путь до место сохранения xlsx
-    private int deleteOrNo=1; //выбор удалять xml файл после конвертации или нет
+    private int deleteOrNo=2; //выбор удалять xml файл после конвертации или нет
     private int openOrNo=1; //выбор открывать xlsx файл после конвертации или нет
 
     private void button1_Click(object sender, EventArgs e)
@@ -31,9 +31,10 @@ public partial class Form1 : Form
             }
         }
         else if (selectView == 2)
-        {
-            Process.Start(new ProcessStartInfo(pathToExe, $"{selectView} null \"{pathToSaveXlsx}\" null {openOrNo}") { UseShellExecute = true });
+        {     
+            Process.Start(new ProcessStartInfo(pathToExe, $"{selectView} null \"{pathToSaveXlsx}\" 0 {openOrNo}") { UseShellExecute = true });
         }
+        
 
     }
 }
